@@ -249,10 +249,12 @@ $(window).load(function() {
 
  	//Google Maps
       $('#gmap').gmap3({
-        marker:{address:"Haltern am See, Weseler Str. 151", options:{icon: "img/location1.png"}},
+        marker:{address:"Manassas, VA", options:{icon: "img/location1.png"}},
         map:{
             options:{
-              zoom: 14
+              zoom: 14,
+              scrollwheel: false,
+              disableDoubleClickZoom: true
             }
            }
       });
