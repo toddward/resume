@@ -8,8 +8,7 @@ spec:
   type: LoadBalancer
   ports:
   - name: http
-    port: 8080
-    targetPort: resume-port
+    port: 80
   selector:
     name: wardzinski-resume-app
 ---
@@ -38,7 +37,7 @@ spec:
       containers:
       - image: toddwardzinski/wardzinskiresume:latest
         name: wardzinski-resume-app
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         resources:
           requests:
             cpu: "20m"
@@ -55,9 +54,6 @@ spec:
             port: 80  
           initialDelaySeconds: 30
           timeoutSeconds: 10   
-        ports:
-        - containerPort: 80
-          name: resume-port
       restartPolicy: Always
       imagePullSecrets:
         - name: regcred
