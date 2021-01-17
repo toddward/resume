@@ -2,15 +2,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wardzinski-resume-service
-  namespace: web
+  creationTimestamp: "2020-10-05T15:50:55Z"
+  labels:
+    name: wardzinski-resume-app
+  name: wardzinskiinfosvc
+  namespace: wardzinskiinfo
 spec:
-  type: LoadBalancer
   ports:
-  - name: http
-    port: 80
+  - port: 80
+    protocol: TCP
+    targetPort: 80
   selector:
     name: wardzinski-resume-app
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -18,7 +22,7 @@ metadata:
   name:  wardzinski-resume-app
   labels:
     name:  wardzinski-resume-app
-  namespace: web
+  namespace: wardzinskiinfo
 spec:
   replicas: 2
   strategy:
