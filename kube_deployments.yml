@@ -2,11 +2,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: "2020-10-05T15:50:55Z"
   labels:
     name: wardzinski-resume-app
   name: wardzinskiinfosvc
-  namespace: wardzinskiinfo
+  namespace: wardzinskiresume
 spec:
   ports:
   - port: 80
@@ -22,7 +21,7 @@ metadata:
   name:  wardzinski-resume-app
   labels:
     name:  wardzinski-resume-app
-  namespace: wardzinskiinfo
+  namespace: wardzinskiresume
 spec:
   replicas: 2
   strategy:
@@ -39,7 +38,7 @@ spec:
         name:  wardzinski-resume-app
     spec:
       containers:
-      - image: toddwardzinski/wardzinskiresume:latest
+      - image: toddwardzinski/resume:latest
         name: wardzinski-resume-app
         imagePullPolicy: Always
         resources:
@@ -50,14 +49,12 @@ spec:
           httpGet:
             path: /index.html
             port: 80
-          initialDelaySeconds: 90
-          timeoutSeconds: 10
+          initialDelaySeconds: 15
+          timeoutSeconds: 25
         readinessProbe:
           httpGet:
             path: /index.html
             port: 80  
-          initialDelaySeconds: 30
-          timeoutSeconds: 10   
+          initialDelaySeconds: 15
+          timeoutSeconds: 25
       restartPolicy: Always
-      imagePullSecrets:
-        - name: regcred

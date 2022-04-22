@@ -1,28 +1,51 @@
-apiVersion: extensions/v1beta1
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: wardinfo-ingress
+#   namespace: wardzinskiresume
+# spec:
+#   rules:
+#   - host: www.wardzinski.info
+#     http:
+#       paths:
+#       - backend:
+#           serviceName: wardzinskiinfosvc
+#           servicePort: 80
+#   - host: wardzinski.info
+#     http:
+#       paths:
+#       - backend:
+#           serviceName: wardzinskiinfosvc
+#           servicePort: 80
+# ---
+# https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource
+
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: wardinfo-ingress
-  namespace: wardzinskiinfo
+  name: wardzinskiinfo-ingress
+  namespace: wardzinskiresume
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    kubernetes.io/ingress.class: nginx
 spec:
-  tls:
-  - hosts:
-    - wardzinski.info
-    - www.wardzinski.info
-    secretName: echo-tls
   rules:
   - host: www.wardzinski.info
     http:
       paths:
-      - backend:
-          serviceName: wardzinskiinfosvc
-          servicePort: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wardzinskiinfosvc
+            port:
+              number: 80
   - host: wardzinski.info
     http:
       paths:
-      - backend:
-          serviceName: wardzinskiinfosvc
-          servicePort: 80
-
-
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wardzinskiinfosvc
+            port:
+              number: 80
