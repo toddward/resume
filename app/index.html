@@ -327,14 +327,11 @@
     }
 
     /* ===== Print ===== */
-    @media print {
-      body { background: #fff; }
-      .page { box-shadow: none; margin: 0; max-width: 100%; }
-      .header { padding: 1.5rem 2rem; }
-      .content { font-size: 0.85rem; }
-      .footer { display: none; }
-    }
+    /* Print/PDF styles live in print.css, linked after this block so its
+       media="print" rules win the cascade. */
   </style>
+  <!-- Print/PDF stylesheet — linked last so it overrides the base styles above -->
+  <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>
 
@@ -452,6 +449,16 @@
           <h3>Backend Website Engineer</h3>
           <div class="degree">Inisfail Inc. (501(c)(3))</div>
           <div class="dates">Jun 2018 &ndash; Present</div>
+        </div>
+        <div class="edu-item">
+          <h3>Accounts Manager</h3>
+          <div class="degree">Girl Scouts of America</div>
+          <div class="dates">2025 &ndash; Present</div>
+        </div>
+        <div class="edu-item">
+          <h3>Assistant</h3>
+          <div class="degree">Boy Scouts of America</div>
+          <div class="dates">2024 &ndash; Present</div>
         </div>
       </div>
 
