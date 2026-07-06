@@ -327,14 +327,11 @@
     }
 
     /* ===== Print ===== */
-    @media print {
-      body { background: #fff; }
-      .page { box-shadow: none; margin: 0; max-width: 100%; }
-      .header { padding: 1.5rem 2rem; }
-      .content { font-size: 0.85rem; }
-      .footer { display: none; }
-    }
+    /* Print/PDF styles live in print.css, linked after this block so its
+       media="print" rules win the cascade. */
   </style>
+  <!-- Print/PDF stylesheet — linked last so it overrides the base styles above -->
+  <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>
 
