@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: newt
+  name: newt
+  namespace: wardzinskiresume 
+spec:
+  containers:
+  - env:
+    - name: PANGOLIN_ENDPOINT
+      value: https://pangolin.wardzinski.dev
+    - name: NEWT_ID
+      value: 8d3amn4c26m9keg
+    - name: NEWT_SECRET
+      value: 8pbmp3shxulqtmh2z4213migw6wkalxnboijotg2p8uiag1u
+    image: fosrl/newt:latest
+    imagePullPolicy: Always
+    name: newt
+  restartPolicy: Always
