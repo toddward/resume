@@ -214,6 +214,42 @@
       margin-left: -0.1em;
     }
 
+    .cert-list a {
+      color: inherit;
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: #b0b0b0;
+      text-underline-offset: 2px;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .cert-list a:hover {
+      text-decoration-color: #2b2b2b;
+    }
+
+    .cert-badge {
+      display: inline-block;
+      line-height: 0;
+      margin: 0 0 1rem;
+    }
+
+    .cert-badge img {
+      display: block;
+      width: 6.5rem;
+      height: auto;
+      transition: transform 0.2s ease;
+    }
+
+    .cert-badge:hover img,
+    .cert-badge:focus-visible img {
+      transform: scale(1.06);
+    }
+
+    .cert-badge:focus-visible {
+      outline: 2px solid #2b2b2b;
+      outline-offset: 4px;
+    }
+
     /* ===== Experience ===== */
     .job + .job {
       margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -339,13 +375,128 @@
       }
     }
 
-    /* ===== Print ===== */
+    @media (prefers-reduced-motion: reduce) {
+      .cert-badge img {
+        transition: none;
+      }
+
+      .cert-badge:hover img,
+      .cert-badge:focus-visible img {
+        transform: none;
+      }
+    }
+
+    /* ===== Print =====
+       Paper margins come from @page (0.5in). Do not zero them, and do not
+       add a second outer margin on .page — that would double the inset.
+       Inner padding stays on the header/sections, matching the on-screen card. */
     @media print {
-      body { background: #fff; }
-      .page { box-shadow: none; margin: 0; max-width: 100%; }
-      .header { padding: 1.5rem 2rem; }
-      .content { font-size: 0.85rem; }
-      .footer { display: none; }
+      @page {
+        size: letter portrait;
+        margin: 0.5in;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        color: #2d2d2d;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .page {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+        background: #fff;
+      }
+
+      .header {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        gap: 0.75rem;
+        padding: 1.5rem 1.25rem;
+        background: #2b2b2b !important;
+        color: #fff !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .header-name {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      .header-name h1 {
+        font-size: 2.3rem;
+        white-space: nowrap;
+      }
+
+      .header-name .title {
+        color: #b0b0b0 !important;
+      }
+
+      .header-contact {
+        flex: 0 0 auto;
+        text-align: right;
+        color: #c8c8c8 !important;
+      }
+
+      .header-contact a {
+        color: #c8c8c8 !important;
+        text-decoration: none;
+      }
+
+      .summary,
+      .details-section {
+        background: #f4f4f4 !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+      }
+
+      .sidebar {
+        border-right: 1px solid #e0e0e0;
+        border-bottom: none;
+      }
+
+      .footer {
+        display: block;
+        background: #2b2b2b !important;
+        color: #888 !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .footer a {
+        color: #aaa !important;
+        text-decoration: none;
+      }
+
+      a[href]::after {
+        content: none !important;
+      }
+
+      .cert-badge img {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .edu-item,
+      .header,
+      .summary,
+      .footer {
+        break-inside: avoid;
+      }
     }
   </style>
 </head>
@@ -431,7 +582,11 @@
       <!-- Certifications -->
       <div class="section">
         <h2 class="section-title">Certifications</h2>
+        <a class="cert-badge" href="https://www.credly.com/badges/6c76523c-e0b2-4a20-9d31-c8274d9de4cd/public_url" target="_blank" rel="noopener noreferrer" title="Verify Claude Certified Associate — Foundations on Credly">
+          <img src="images/claude-certified-associate-foundations.png" alt="Claude Certified Associate — Foundations" width="600" height="600">
+        </a>
         <ul class="cert-list">
+          <li><a href="https://www.credly.com/badges/6c76523c-e0b2-4a20-9d31-c8274d9de4cd/public_url" target="_blank" rel="noopener noreferrer">Claude Certified Associate &mdash; Foundations</a></li>
           <li>Certified Kubernetes Administrator (CKA)</li>
           <li>Certified Kubernetes Application Developer (CKAD)</li>
           <li>Red Hat Certified Specialist in OpenShift App Development</li>
