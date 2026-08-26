@@ -214,6 +214,42 @@
       margin-left: -0.1em;
     }
 
+    .cert-list a {
+      color: inherit;
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: #b0b0b0;
+      text-underline-offset: 2px;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .cert-list a:hover {
+      text-decoration-color: #2b2b2b;
+    }
+
+    .cert-badge {
+      display: inline-block;
+      line-height: 0;
+      margin: 0 0 1rem;
+    }
+
+    .cert-badge img {
+      display: block;
+      width: 6.5rem;
+      height: auto;
+      transition: transform 0.2s ease;
+    }
+
+    .cert-badge:hover img,
+    .cert-badge:focus-visible img {
+      transform: scale(1.06);
+    }
+
+    .cert-badge:focus-visible {
+      outline: 2px solid #2b2b2b;
+      outline-offset: 4px;
+    }
+
     /* ===== Experience ===== */
     .job + .job {
       margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -249,6 +285,19 @@
 
     .job ul li::marker {
       color: #999;
+    }
+
+    .job a {
+      color: inherit;
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: #b0b0b0;
+      text-underline-offset: 2px;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .job a:hover {
+      text-decoration-color: #2b2b2b;
     }
 
     /* ===== Details Section ===== */
@@ -346,6 +395,7 @@
     <div class="header-contact">
       <div>Bristow, Virginia</div>
       <div><a href="https://www.linkedin.com/in/twardzinski" target="_blank">linkedin.com/in/twardzinski</a></div>
+      <div><a href="https://github.com/toddward" target="_blank">github.com/toddward</a></div>
       <div><a href="https://www.wardzinski.info" target="_blank">wardzinski.info</a></div>
     </div>
   </header>
@@ -384,6 +434,7 @@
           <li>Anthropic Claude &amp; AI/ML</li>
           <li>MCP &amp; Agentic Development (ADLC)</li>
           <li>RAG Architectures &amp; LlamaStack</li>
+          <li>AI Infrastructure Sizing (GPU/vLLM/llm-d)</li>
           <li>Kubernetes &amp; OpenShift 3/4</li>
           <li>Python, Node.js, JavaScript</li>
           <li>Angular, React, Ionic, Cordova</li>
@@ -413,7 +464,11 @@
       <!-- Certifications -->
       <div class="section">
         <h2 class="section-title">Certifications</h2>
+        <a class="cert-badge" href="https://www.credly.com/badges/6c76523c-e0b2-4a20-9d31-c8274d9de4cd/public_url" target="_blank" rel="noopener noreferrer" title="Verify Claude Certified Associate — Foundations on Credly">
+          <img src="images/claude-certified-associate-foundations.png" alt="Claude Certified Associate — Foundations" width="600" height="600">
+        </a>
         <ul class="cert-list">
+          <li><a href="https://www.credly.com/badges/6c76523c-e0b2-4a20-9d31-c8274d9de4cd/public_url" target="_blank" rel="noopener noreferrer">Claude Certified Associate &mdash; Foundations</a></li>
           <li>Certified Kubernetes Administrator (CKA)</li>
           <li>Certified Kubernetes Application Developer (CKAD)</li>
           <li>Red Hat Certified Specialist in OpenShift App Development</li>
@@ -474,6 +529,7 @@
         <ul>
           <li>Lead AI and platform architect on Red Hat's Services Platform Team (SPT), serving as the primary technical expert bridging customer vision and outcomes for enterprise AI adoption and OpenShift/Kubernetes modernization.</li>
           <li>Source and shape strategic &ldquo;big bet&rdquo; and First-of-a-Kind (FOAK) services engagements with field sellers &mdash; from multi-billion-dollar agentic AI pipeline in the public sector to AI-as-a-Service POCs scaling to GPU superpod clusters (KServe, vLLM, 120B+ models on NVIDIA DGX B200s).</li>
+          <li>Built and open-sourced the <a href="https://github.com/toddward/red-hat-ai-sizing-skill" target="_blank">Red Hat AI Sizing Skill</a> &mdash; an agent skill that maps an AI use case (chatbot, RAG, AI-assisted development, agentic/MCP workflows, fine-tuning) to the GPUs, node shapes, CPU/RAM/storage/network, concurrency envelope, and licence-vetted open-weight models required on OpenShift AI / vLLM / llm-d &mdash; giving customers and sellers a traceable, calculator-backed answer to &ldquo;how many GPUs do we need for 400 developers?&rdquo; before procurement.</li>
           <li>Deliver billable architecture engagements well above target utilization &mdash; designing Zero Trust architectures, Keycloak/RBAC identity, Confidential Containers (CoCo), RHACM, and KEDA-driven autoscaling for regulated enterprise customers.</li>
           <li>Authored the Red Hat Engagement Kit (RHEK), a repeatable customer-journey &ldquo;compounding delivery&rdquo; engine adopted across the delivery organization to scale impact over Sales, Services, and Product Engineering.</li>
           <li>Recognized AI/Claude subject-matter expert &mdash; teaching AI Skills, MCP (Model Context Protocol), and Agentic Development Lifecycle (ADLC) workshops globally, driving the shift from traditional SDLC to AI-assisted ADLC.</li>
