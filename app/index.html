@@ -375,18 +375,12 @@
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .cert-badge img {
-        transition: none;
-      }
-
-      .cert-badge:hover img,
-      .cert-badge:focus-visible img {
-        transform: none;
-      }
-    }
+    /* ===== Print ===== */
+    /* Print/PDF styles live in print.css, linked after this block so its
+       media="print" rules win the cascade. */
   </style>
-  <link rel="stylesheet" href="print.css">
+  <!-- Print/PDF stylesheet — linked last so it overrides the base styles above -->
+  <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>
 
@@ -510,6 +504,16 @@
           <h3>Backend Website Engineer</h3>
           <div class="degree">Inisfail Inc. (501(c)(3))</div>
           <div class="dates">Jun 2018 &ndash; Present</div>
+        </div>
+        <div class="edu-item">
+          <h3>Accounts Manager</h3>
+          <div class="degree">Girl Scouts of America</div>
+          <div class="dates">2025 &ndash; Present</div>
+        </div>
+        <div class="edu-item">
+          <h3>Assistant</h3>
+          <div class="degree">Boy Scouts of America</div>
+          <div class="dates">2024 &ndash; Present</div>
         </div>
       </div>
 
