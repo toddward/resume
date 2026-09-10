@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "wardzinski-info",
+  "compatibility_date": "2026-09-09",
+  "assets": {
+    "directory": "./app",
+    "not_found_handling": "none"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    { "pattern": "wardzinski.info", "custom_domain": true },
+    { "pattern": "www.wardzinski.info", "custom_domain": true }
+  ]
+}
