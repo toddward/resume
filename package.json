@@ -1,0 +1,12 @@
+{
+  "name": "wardzinski-info",
+  "private": true,
+  "description": "Resume site for Wm. Todd Wardzinski, served from a Cloudflare Worker.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.130.0"
+  }
+}
