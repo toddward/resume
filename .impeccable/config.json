@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "app/index.html"
+        ],
+        "createdAt": "2026-10-07T00:18:31.237Z",
+        "reason": "Claude: both hits are false positives - .header-name h1 is a single-line 900-weight display name at 1.1, and .cert-badge line-height:0 wraps a block image with no text"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "app/index.html"
+        ],
+        "createdAt": "2026-10-07T00:19:36.259Z",
+        "reason": "user confirmed: Inter is the resume's intentional body face"
+      },
+      {
+        "rule": "marketing-buzzword",
+        "value": "*",
+        "files": [
+          "app/index.html"
+        ],
+        "createdAt": "2026-10-07T00:19:39.195Z",
+        "reason": "user confirmed: 'enterprise-grade' wording in the Ohtari Labs and Grayson Digital bullets is intentional"
+      }
+    ]
+  }
+}
